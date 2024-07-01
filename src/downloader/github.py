@@ -58,6 +58,7 @@ class Github(Downloader):
         if len(path_segments) > tag_position and path_segments[3] == "latest-prerelease":
             logger.info(f"Including pre-releases/beta for {github_repo_name} selection.")
             latest_tag = str(latest(f"{github_repo_owner}/{github_repo_name}", output_format="tag", pre_ok=True))
+            print(f"Found latest tag to be {latest_tag}")
             release_tag = f"tags/{latest_tag}"
         else:
             release_tag = next(
